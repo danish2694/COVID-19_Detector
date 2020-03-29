@@ -1,0 +1,97 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typed.js"></script>
+
+    <link rel="shortcut icon" href="{% static 'images/covid.ico' %}">
+
+    <title>COVID Probability Detector</title>
+    <style type="text/css">
+    .jumbotron {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+      }
+    
+    </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><b><i>CO<span class="text-danger">VID</span>-19 Detector</i></b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact/">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid bg-secondary text-white mt-1 mx-2">
+      <div class="container d-flex justify-content-center">
+        <h1 class="display-6"><b>Corona<span class="text-dark">Virus</span> Prob<span class="text-dark">ability</span> Detec<span class="text-dark">tor</span></b></h1>
+      </div>
+    </div>
+
+     <div class="container w-50 bg-light">
+        <form method="POST" action="/">{% csrf_token %}
+            <div class="form-group">
+              <label for="fever" class="text-info font-weight-bold">Enter Fever Value</label>
+              <input type="text" class="form-control" id="fever" name="fever" placeholder="Enter Fever Value" required>
+            </div>
+            <div class="form-group">
+                <label for="age" class="text-info font-weight-bold">Enter Age Value</label>
+                <input type="text" class="form-control" id="age" name="age" placeholder="Enter Age Value" required>
+              </div>
+            <div class="form-group">
+              <label for="pain" class="text-info font-weight-bold">Body Pain</label>
+              <select class="form-control custom-select" id="pain" name="pain">
+                <option value="0">No Pain</option>
+                <option value="1">Severe Pain</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="runnyNose" class="text-info font-weight-bold">Runny Nose</label>
+                <select class="form-control custom-select" id="runnyNose" name="runnyNose">
+                  <option value="0">Yes</option>
+                  <option value="1">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                  <label for="diffBreath" class="text-info font-weight-bold">Breathing Difficulty</label>
+                  <select class="form-control custom-select" id="diffBreath" name="diffBreath">
+                    <option value="-1">No Difficulty</option>
+                    <option value="0">Little Difficulty</option>
+                    <option value="1">Severe Difficulty</option>
+                  </select>
+                </div>
+            <button class="btn btn-dark center-block">Submit</button>
+          </form>
+    
+    </div>
+    
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  </body>
+</html>
